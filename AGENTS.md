@@ -17,7 +17,7 @@ client.status()
 client.list_destinations(limit=20)
 ```
 
-CLI: `sorted-travel status`. MCP hosts should still connect to `https://sorted.travel/mcp` for ranking, weather, visa, and profile tools.
+CLI: `sorted-travel status`. MCP hosts should still connect to `https://sorted.travel/mcp` for ranking, weather, visa, and profile tools. This repo also ships an Agent Plugins v1 package (`plugin.json`, `skills/`, `mcp.json`).
 
 ## Conventions
 

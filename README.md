@@ -14,6 +14,7 @@ This is a stdlib-only client for the public endpoints at `https://sorted.travel`
 - SDK guide: [https://sorted.travel/sdks.md](https://sorted.travel/sdks.md)
 - OpenAPI: [https://sorted.travel/openapi.json](https://sorted.travel/openapi.json)
 - MCP: [https://sorted.travel/mcp](https://sorted.travel/mcp)
+- Agent Plugin: [plugin.json](plugin.json), [skills/sorted-travel/SKILL.md](skills/sorted-travel/SKILL.md), and [mcp.json](mcp.json) (Agent Plugins v1)
 - PyPI: [https://pypi.org/project/sorted-travel/](https://pypi.org/project/sorted-travel/)
 
 ## Install
