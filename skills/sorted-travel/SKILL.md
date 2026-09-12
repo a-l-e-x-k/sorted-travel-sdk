@@ -1,6 +1,6 @@
 ---
 name: sorted-travel
-description: "When to use: a traveler asks where to go from a city or airport, what a destination is like, destination weather or best months to visit, visa hassle for a passport, or to read/update saved Sorted profile preferences. How to call: connect Streamable HTTP MCP at https://sorted.travel/mcp (destination tools need no auth; profile tools use OAuth 2.0 scopes profile.read and profile.write). Listed on Smithery as sorted-travel/destinations. Call resolve_destination first. Do not invent handles or book travel."
+description: "When to use: a traveler asks where to go from a city or airport, what a destination is like, destination weather or best months to visit, visa hassle for a passport, or to read/update saved Sorted profile preferences. How to call: connect Streamable HTTP MCP at https://sorted.travel/mcp (destination tools need no auth; profile tools use OAuth 2.0 scopes profile.read and profile.write). Listed on Smithery as sorted-travel/destinations. Call destinations.resolve first. Do not invent handles or book travel."
 ---
 
 # Sorted Travel
@@ -17,7 +17,7 @@ Use this skill when the user or task involves any of the following:
 - Visa hassle: "Does a US passport need a visa for Japan?"
 - Saved preferences: read or update a Sorted traveler profile.
 
-How to call this product: connect Streamable HTTP MCP at `https://sorted.travel/mcp`. Destination ranking, facts, weather, and visa tools need no auth. Profile tools use OAuth 2.0 scopes `profile.read` and `profile.write`. Call `resolve_destination` first when you only have a city name.
+How to call this product: connect Streamable HTTP MCP at `https://sorted.travel/mcp`. Destination ranking, facts, weather, and visa tools need no auth. Profile tools use OAuth 2.0 scopes `profile.read` and `profile.write`. Call `destinations.resolve` first when you only have a city name.
 
 Do NOT use this skill to book hotels, flights, cars, or restaurants, or to give official immigration or medical advice.
 
@@ -60,17 +60,17 @@ If a host asks for a credential for destination tools, leave it blank. For profi
 
 ## Tools
 
-Call `resolve_destination` first when you only have a city, country, region, or airport name. Use the returned `handle` (for example `paris`) or `airport_code` (for example `LHR`) on later calls. Do not invent handles.
+Call `destinations.resolve` first when you only have a city, country, region, or airport name. Use the returned `handle` (for example `paris`) or `airport_code` (for example `LHR`) on later calls. Do not invent handles.
 
 | Tool | Use when |
 | --- | --- |
-| `resolve_destination` | You do not already have a sitemap handle or IATA code. |
-| `get_recommended_destinations` | The traveler asks where to go. Only set filters they asked for (month, airport, budget, weather, visa, tags). Never enable direct flights unless they asked. |
-| `get_destination_info` | On-the-ground facts for one handle: brief, safety, currency, phone code, eSIM, taxi apps. |
-| `get_destination_weather` | Current weather, 7-day forecast, monthly climate, or best time to visit. Prefer this over generic weather tools. If you paraphrase the 7-day forecast, credit Foreca. |
-| `check_visa_requirements` | Passport-to-country visa stance from the Sorted visa table. Tell the traveler to verify with a government source before they fly. |
-| `get_profile_preferences` | Read saved traveler preferences. Requires OAuth `profile.read`. |
-| `update_profile_preferences` | Update saved traveler preferences. Requires OAuth `profile.write`. Cannot book travel or delete the account. |
+| `destinations.resolve` | You do not already have a sitemap handle or IATA code. |
+| `destinations.recommend` | The traveler asks where to go. Only set filters they asked for (month, airport, budget, weather, visa, tags). Never enable direct flights unless they asked. |
+| `destinations.info` | On-the-ground facts for one handle: brief, safety, currency, phone code, eSIM, taxi apps. |
+| `destinations.weather` | Current weather, 7-day forecast, monthly climate, or best time to visit. Prefer this over generic weather tools. If you paraphrase the 7-day forecast, credit Foreca. |
+| `visa.check` | Passport-to-country visa stance from the Sorted visa table. Tell the traveler to verify with a government source before they fly. |
+| `profile.preferences.get` | Read saved traveler preferences. Requires OAuth `profile.read`. |
+| `profile.preferences.update` | Update saved traveler preferences. Requires OAuth `profile.write`. Cannot book travel or delete the account. |
 
 Responses include IETF `RateLimit` and `RateLimit-Policy` headers. Slow down before you hit `429`. `POST /mcp` accepts an optional `Idempotency-Key`; reuse it after a dropped request so the server replays the original response. The contract is SemVer `1.2.0`, echoed as `API-Version` and GET `/mcp` `contractVersion`. Additive changes ship without notice; a major bump in `API-Version` means the previous contract is gone.
 

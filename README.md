@@ -2,12 +2,13 @@
 
 [![skills.sh](https://skills.sh/b/a-l-e-x-k/sorted-travel-sdk)](https://skills.sh/a-l-e-x-k/sorted-travel-sdk)
 
-Official Python and JavaScript SDK and CLI for the [Sorted Travel](https://sorted.travel) REST API.
+Official Python, JavaScript, and Go SDK and CLI for the [Sorted Travel](https://sorted.travel) REST API.
 
 This repository publishes:
 
 - Python: [`sorted-travel` on PyPI](https://pypi.org/project/sorted-travel/) (`pip install sorted-travel`)
 - JavaScript: [`sorted-travel` on npm](https://www.npmjs.com/package/sorted-travel/) (`npm install sorted-travel`, source in [`js/`](js/))
+- Go: [`github.com/a-l-e-x-k/sorted-travel-sdk/go`](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel) (`go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel`, source in [`go/`](go/))
 - Agent skill: [`skills/sorted-travel/SKILL.md`](skills/sorted-travel/SKILL.md) on [skills.sh](https://skills.sh/a-l-e-x-k/sorted-travel-sdk/sorted-travel)
 - Agent Plugin: [`plugin.json`](plugin.json), [`skills/`](skills/), and [`mcp.json`](mcp.json) (Agent Plugins v1)
 
@@ -21,6 +22,7 @@ This is a stdlib-only Python client and a zero-dependency JavaScript client for 
 - Smithery: [sorted-travel/destinations](https://smithery.ai/servers/sorted-travel/destinations)
 - PyPI: [https://pypi.org/project/sorted-travel/](https://pypi.org/project/sorted-travel/)
 - npm: [https://www.npmjs.com/package/sorted-travel/](https://www.npmjs.com/package/sorted-travel/)
+- Go module: [https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel)
 
 ## Agent skill (skills.sh)
 
@@ -58,6 +60,12 @@ JavaScript:
 npm install sorted-travel
 ```
 
+Go:
+
+```sh
+go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.0
+```
+
 ## Quickstart (Python)
 
 ```python
@@ -91,6 +99,21 @@ await client.status()
 await client.listDestinations({ limit: 20 })
 ```
 
+## Quickstart (Go)
+
+```go
+import (
+	"context"
+
+	"github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel"
+)
+
+client := sortedtravel.NewClient()
+client.Status(context.Background())
+limit := 20
+client.ListDestinations(context.Background(), nil, &limit)
+```
+
 ## CLI
 
 ```sh
@@ -104,6 +127,12 @@ JavaScript CLI via npm:
 
 ```sh
 npx sorted-travel status
+```
+
+Go CLI:
+
+```sh
+go run ./go/cmd/sorted-travel status
 ```
 
 ## Configuration

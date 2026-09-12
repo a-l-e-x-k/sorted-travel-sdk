@@ -1,0 +1,27 @@
+# Smithery registry metadata for sorted-travel/destinations.
+# Canonical MCP endpoint: https://sorted.travel/mcp
+displayName: Sorted Travel
+description: >-
+  Personalized destination ranking, destination lookup, destination facts,
+  destination weather, and visa planning. Destination tools need no auth;
+  profile preference tools use OAuth scopes profile.read and profile.write.
+homepage: https://sorted.travel/developers
+repository: https://github.com/a-l-e-x-k/sorted-travel-sdk
+license: MIT
+icon: https://sorted.travel/favicon.png
+categories:
+  - travel
+  - destinations
+tags:
+  - mcp
+  - travel
+  - destinations
+  - weather
+  - visa
+
+startCommand:
+  type: http
+  configSchema:
+    type: object
+    properties: {}
+  exampleConfig: {}
