@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Sorted Travel",
+      "description": "Destination ranking, facts, weather, visa planning, and profile preferences via MCP.",
+      "skills": [
+        "sorted-travel"
+      ]
+    }
+  ]
+}
