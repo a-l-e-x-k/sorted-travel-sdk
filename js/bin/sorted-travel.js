@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { Client } from "./index.js"
+import { Client } from "../index.js"
 
 function printJson(value) {
   process.stdout.write(`${JSON.stringify(value, null, 2)}\n`)

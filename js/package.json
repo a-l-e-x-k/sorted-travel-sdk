@@ -28,11 +28,11 @@
     ".": "./index.js"
   },
   "bin": {
-    "sorted-travel": "./cli.js"
+    "sorted-travel": "bin/sorted-travel.js"
   },
   "files": [
+    "bin/sorted-travel.js",
     "index.js",
-    "cli.js",
     "README.md"
   ],
   "engines": {
@@ -42,7 +42,6 @@
     "test": "node --test test.js"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }
