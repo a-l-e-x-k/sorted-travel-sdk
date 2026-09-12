@@ -1,0 +1,48 @@
+{
+  "name": "sorted-travel",
+  "version": "0.1.0",
+  "description": "Official JavaScript SDK and CLI for the Sorted Travel REST API.",
+  "keywords": [
+    "sorted-travel",
+    "sorted.travel",
+    "sdk",
+    "cli",
+    "api-client",
+    "travel",
+    "agent"
+  ],
+  "homepage": "https://sorted.travel",
+  "bugs": {
+    "url": "https://github.com/a-l-e-x-k/sorted-travel-sdk/issues"
+  },
+  "license": "MIT",
+  "author": "Sorted Travel <support@sorted.travel>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a-l-e-x-k/sorted-travel-sdk.git",
+    "directory": "js"
+  },
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "bin": {
+    "sorted-travel": "./cli.js"
+  },
+  "files": [
+    "index.js",
+    "cli.js",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test.js"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

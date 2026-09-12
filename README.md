@@ -1,6 +1,11 @@
 # sorted-travel
 
-Official Python SDK and CLI for the [Sorted Travel](https://sorted.travel) REST API.
+Official Python and JavaScript SDK and CLI for the [Sorted Travel](https://sorted.travel) REST API.
+
+This repository publishes:
+
+- Python: [`sorted-travel` on PyPI](https://pypi.org/project/sorted-travel/) (`pip install sorted-travel`)
+- JavaScript: [`sorted-travel` on npm](https://www.npmjs.com/package/sorted-travel/) (`npm install sorted-travel`, source in [`js/`](js/))
 
 This is a stdlib-only client for the public endpoints at `https://sorted.travel`. Destination ranking, facts, weather, and visa tools are a free tier with zero-auth access. An API key is optional.
 
