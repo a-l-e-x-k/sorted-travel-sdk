@@ -72,7 +72,3 @@ Interactive ranking, weather, and visa still go through MCP at `https://sorted.t
 ## License
 
 MIT. The Sorted Travel product remains under its own terms at [https://sorted.travel/terms](https://sorted.travel/terms).
-
-## Publishing to PyPI
-
-Trusted Publishing is already wired in `.github/workflows/publish.yml` (kept locally until the GitHub token has `workflow` scope). On PyPI, add a trusted publisher for project `sorted-travel`, repo `a-l-e-x-k/sorted-travel-sdk`, workflow `publish.yml`, environment `pypi`. Then tag a GitHub Release named `v0.1.0`.
