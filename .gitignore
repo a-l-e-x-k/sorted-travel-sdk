@@ -9,3 +9,7 @@ venv/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+
+# Local skills CLI installs (npx skills add)
+.agents/
+skills-lock.json
