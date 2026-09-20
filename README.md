@@ -65,7 +65,7 @@ npm install sorted-travel
 Go:
 
 ```sh
-go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.0
+go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.1
 ```
 
 Ruby:

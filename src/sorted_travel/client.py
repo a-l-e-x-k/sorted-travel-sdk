@@ -6,7 +6,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 DEFAULT_BASE_URL = "https://sorted.travel"
 DEFAULT_TIMEOUT = 30.0

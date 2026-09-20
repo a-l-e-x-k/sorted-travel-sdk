@@ -20,7 +20,7 @@ import (
 const (
 	DefaultBaseURL = "https://sorted.travel"
 	DefaultTimeout = 30 * time.Second
-	Version        = "0.1.0"
+	Version        = "0.1.1"
 	userAgent      = "sorted-travel-go/" + Version + " (+https://sorted.travel)"
 )
 

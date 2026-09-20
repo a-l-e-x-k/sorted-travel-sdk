@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "sorted-travel"
-version = "0.1.0"
+version = "0.1.1"
 description = "Official Python SDK and CLI for the Sorted Travel REST API."
 readme = "README.md"
 requires-python = ">=3.10"

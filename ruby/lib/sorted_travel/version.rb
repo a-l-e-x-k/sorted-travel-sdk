@@ -2,5 +2,5 @@
 
 module SortedTravel
   # Gem version, kept in sync with other language SDKs.
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 end

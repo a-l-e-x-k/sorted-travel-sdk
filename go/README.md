@@ -10,13 +10,13 @@ Official Go client and CLI for the [Sorted Travel](https://sorted.travel) REST A
 ## Install
 
 ```sh
-go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.0
+go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.1
 ```
 
 CLI:
 
 ```sh
-go install github.com/a-l-e-x-k/sorted-travel-sdk/go/cmd/sorted-travel@v0.1.0
+go install github.com/a-l-e-x-k/sorted-travel-sdk/go/cmd/sorted-travel@v0.1.1
 ```
 
 ## Quickstart

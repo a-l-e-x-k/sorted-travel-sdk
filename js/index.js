@@ -1,6 +1,6 @@
 const DEFAULT_BASE_URL = "https://sorted.travel"
 const DEFAULT_TIMEOUT_MS = 30000
-const VERSION = "0.1.0"
+const VERSION = "0.1.1"
 const USER_AGENT = `sorted-travel-js/${VERSION} (+https://sorted.travel)`
 
 export class SortedTravelError extends Error {}
