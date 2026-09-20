@@ -3,6 +3,7 @@ name: publish-ruby
 on:
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   rubygems:
