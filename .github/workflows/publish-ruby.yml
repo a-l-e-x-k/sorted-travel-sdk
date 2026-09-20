@@ -4,13 +4,13 @@ on:
   release:
     types: [published]
 
-permissions:
-  contents: read
-
 jobs:
   rubygems:
     runs-on: ubuntu-latest
     environment: rubygems
+    permissions:
+      contents: read
+      id-token: write
     defaults:
       run:
         working-directory: ruby
@@ -22,9 +22,9 @@ jobs:
           bundler-cache: false
       - name: Run Ruby unit tests
         run: ruby -Ilib -Itest test/test_client.rb
+      - name: Configure RubyGems credentials (trusted publishing)
+        uses: rubygems/configure-rubygems-credentials@dc5a8d8553e6ee01fc26761a49e99e733d17954a
       - name: Build gem
         run: gem build sorted_travel.gemspec
       - name: Publish to RubyGems
-        env:
-          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
         run: gem push sorted-travel-*.gem
