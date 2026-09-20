@@ -10,7 +10,7 @@ This repository publishes:
 - JavaScript: [`sorted-travel` on npm](https://www.npmjs.com/package/sorted-travel/) (`npm install sorted-travel`, source in [`js/`](js/))
 - Go: [`github.com/a-l-e-x-k/sorted-travel-sdk/go`](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel) (`go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel`, source in [`go/`](go/))
 - Ruby: [`sorted-travel` on RubyGems](https://rubygems.org/gems/sorted-travel) (`gem install sorted-travel`, source in [`ruby/`](ruby/))
-- Agent skill: [`skills/sorted-travel/SKILL.md`](skills/sorted-travel/SKILL.md) on [skills.sh](https://skills.sh/a-l-e-x-k/sorted-travel-sdk/sorted-travel)
+- Agent skills on [skills.sh](https://skills.sh/a-l-e-x-k/sorted-travel-sdk): [`sorted-travel`](skills/sorted-travel/SKILL.md), [`sorted-travel-destinations`](skills/sorted-travel-destinations/SKILL.md), [`sorted-travel-weather`](skills/sorted-travel-weather/SKILL.md), [`sorted-travel-visa`](skills/sorted-travel-visa/SKILL.md)
 - Agent Plugin: [`plugin.json`](plugin.json), [`skills/`](skills/), and [`mcp.json`](mcp.json) (Agent Plugins v1)
 
 This is a stdlib-only Python client and a zero-dependency JavaScript client for the public endpoints at `https://sorted.travel`. Destination ranking, facts, weather, and visa tools are a free tier with zero-auth access. An API key is optional.
@@ -20,15 +20,16 @@ This is a stdlib-only Python client and a zero-dependency JavaScript client for 
 - SDK guide: [https://sorted.travel/sdks.md](https://sorted.travel/sdks.md)
 - OpenAPI: [https://sorted.travel/openapi.json](https://sorted.travel/openapi.json)
 - MCP: [https://sorted.travel/mcp](https://sorted.travel/mcp)
+- Docs MCP: [https://sorted.travel/docs/mcp](https://sorted.travel/docs/mcp)
 - Smithery: [sorted-travel/destinations](https://smithery.ai/servers/sorted-travel/destinations)
 - PyPI: [https://pypi.org/project/sorted-travel/](https://pypi.org/project/sorted-travel/)
 - npm: [https://www.npmjs.com/package/sorted-travel/](https://www.npmjs.com/package/sorted-travel/)
 - Go module: [https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel)
 - RubyGems: [https://rubygems.org/gems/sorted-travel](https://rubygems.org/gems/sorted-travel)
 
-## Agent skill (skills.sh)
+## Agent skills (skills.sh)
 
-Install the Sorted Travel agent skill for Cursor, Claude Code, Codex, and other supported agents:
+Install Sorted Travel agent skills for Cursor, Claude Code, Codex, and other supported agents:
 
 ```sh
 npx skills add a-l-e-x-k/sorted-travel-sdk
@@ -40,7 +41,20 @@ Non-interactive install for Cursor:
 npx skills add a-l-e-x-k/sorted-travel-sdk -y -a cursor
 ```
 
-The skill teaches agents when to use Sorted Travel, how to connect MCP at `https://sorted.travel/mcp`, and which tools to call. Source: [`skills/sorted-travel/SKILL.md`](skills/sorted-travel/SKILL.md).
+Install one capability area:
+
+```sh
+npx skills add a-l-e-x-k/sorted-travel-sdk --skill sorted-travel-weather
+```
+
+| Skill | Use when |
+| --- | --- |
+| [`sorted-travel`](skills/sorted-travel/SKILL.md) | Where to go / ranked recommendations |
+| [`sorted-travel-destinations`](skills/sorted-travel-destinations/SKILL.md) | Place facts for a named destination |
+| [`sorted-travel-weather`](skills/sorted-travel-weather/SKILL.md) | Forecast, climate, best months |
+| [`sorted-travel-visa`](skills/sorted-travel-visa/SKILL.md) | Passport visa hassle |
+
+They teach agents when to use Sorted Travel, how to connect the product MCP at `https://sorted.travel/mcp` and the docs MCP at `https://sorted.travel/docs/mcp`, and which tools to call. Groupings: [`skills.sh.json`](skills.sh.json).
 
 Connect MCP directly with [`mcp.json`](mcp.json) or Smithery:
 

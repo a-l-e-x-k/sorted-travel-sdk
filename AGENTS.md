@@ -45,7 +45,7 @@ client = SortedTravel::Client.new
 client.status
 ```
 
-CLI: `sorted-travel status`. MCP hosts should still connect to `https://sorted.travel/mcp` for ranking, weather, visa, and profile tools. This repo also ships an Agent Plugins v1 package (`plugin.json`, `skills/`, `mcp.json`) and a skills.sh entry (`npx skills add a-l-e-x-k/sorted-travel-sdk`).
+CLI: `sorted-travel status`. MCP hosts should still connect to `https://sorted.travel/mcp` for ranking, weather, visa, and profile tools. This repo also ships an Agent Plugins v1 package (`plugin.json`, `skills/`, `mcp.json`) and skills.sh skills (`npx skills add a-l-e-x-k/sorted-travel-sdk`): `sorted-travel`, `sorted-travel-destinations`, `sorted-travel-weather`, `sorted-travel-visa`.
 
 ## Conventions
 

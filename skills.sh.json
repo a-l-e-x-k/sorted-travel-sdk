@@ -3,10 +3,19 @@
   "notGrouped": "bottom",
   "groupings": [
     {
-      "title": "Sorted Travel",
-      "description": "Destination ranking, facts, weather, visa planning, and profile preferences via MCP.",
+      "title": "Trip planning",
+      "description": "Where to go from an airport, ranked by weather, visa hassle, safety, and budget.",
       "skills": [
         "sorted-travel"
+      ]
+    },
+    {
+      "title": "Destination research",
+      "description": "On-the-ground facts, weather and best months, and passport visa hassle for named places.",
+      "skills": [
+        "sorted-travel-destinations",
+        "sorted-travel-weather",
+        "sorted-travel-visa"
       ]
     }
   ]

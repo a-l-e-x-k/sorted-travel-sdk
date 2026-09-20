@@ -4,6 +4,10 @@
     "sorted-travel": {
       "type": "streamable-http",
       "url": "https://sorted.travel/mcp"
+    },
+    "sorted-travel-docs": {
+      "type": "streamable-http",
+      "url": "https://sorted.travel/docs/mcp"
     }
   }
 }

@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sorted.travel",
   "version": "1.2.0",
-  "description": "Sorted Travel agent plugin: destination ranking, facts, weather, and visa tools via MCP.",
+  "description": "Sorted Travel agent plugin: ranking, destination facts, weather, and visa skills via MCP.",
   "homepage": "https://sorted.travel/developers",
   "repository": "https://github.com/a-l-e-x-k/sorted-travel-sdk",
   "license": "MIT",
