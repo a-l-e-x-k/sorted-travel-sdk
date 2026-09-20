@@ -1,0 +1,30 @@
+name: publish-ruby
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  rubygems:
+    runs-on: ubuntu-latest
+    environment: rubygems
+    defaults:
+      run:
+        working-directory: ruby
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: false
+      - name: Run Ruby unit tests
+        run: ruby -Ilib -Itest test/test_client.rb
+      - name: Build gem
+        run: gem build sorted_travel.gemspec
+      - name: Publish to RubyGems
+        env:
+          GEM_HOST_API_KEY: ${{ secrets.RUBYGEMS_API_KEY }}
+        run: gem push sorted-travel-*.gem

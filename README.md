@@ -2,13 +2,14 @@
 
 [![skills.sh](https://skills.sh/b/a-l-e-x-k/sorted-travel-sdk)](https://skills.sh/a-l-e-x-k/sorted-travel-sdk)
 
-Official Python, JavaScript, and Go SDK and CLI for the [Sorted Travel](https://sorted.travel) REST API.
+Official Python, JavaScript, Go, and Ruby SDK and CLI for the [Sorted Travel](https://sorted.travel) REST API.
 
 This repository publishes:
 
 - Python: [`sorted-travel` on PyPI](https://pypi.org/project/sorted-travel/) (`pip install sorted-travel`)
 - JavaScript: [`sorted-travel` on npm](https://www.npmjs.com/package/sorted-travel/) (`npm install sorted-travel`, source in [`js/`](js/))
 - Go: [`github.com/a-l-e-x-k/sorted-travel-sdk/go`](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel) (`go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel`, source in [`go/`](go/))
+- Ruby: [`sorted-travel` on RubyGems](https://rubygems.org/gems/sorted-travel) (`gem install sorted-travel`, source in [`ruby/`](ruby/))
 - Agent skill: [`skills/sorted-travel/SKILL.md`](skills/sorted-travel/SKILL.md) on [skills.sh](https://skills.sh/a-l-e-x-k/sorted-travel-sdk/sorted-travel)
 - Agent Plugin: [`plugin.json`](plugin.json), [`skills/`](skills/), and [`mcp.json`](mcp.json) (Agent Plugins v1)
 
@@ -23,6 +24,7 @@ This is a stdlib-only Python client and a zero-dependency JavaScript client for 
 - PyPI: [https://pypi.org/project/sorted-travel/](https://pypi.org/project/sorted-travel/)
 - npm: [https://www.npmjs.com/package/sorted-travel/](https://www.npmjs.com/package/sorted-travel/)
 - Go module: [https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel)
+- RubyGems: [https://rubygems.org/gems/sorted-travel](https://rubygems.org/gems/sorted-travel)
 
 ## Agent skill (skills.sh)
 
@@ -64,6 +66,12 @@ Go:
 
 ```sh
 go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.0
+```
+
+Ruby:
+
+```sh
+gem install sorted-travel
 ```
 
 ## Quickstart (Python)
@@ -114,6 +122,16 @@ limit := 20
 client.ListDestinations(context.Background(), nil, &limit)
 ```
 
+## Quickstart (Ruby)
+
+```ruby
+require "sorted_travel"
+
+client = SortedTravel::Client.new
+client.status
+client.list_destinations(limit: 20)
+```
+
 ## CLI
 
 ```sh
@@ -133,6 +151,12 @@ Go CLI:
 
 ```sh
 go run ./go/cmd/sorted-travel status
+```
+
+Ruby CLI:
+
+```sh
+sorted-travel status
 ```
 
 ## Configuration

@@ -26,3 +26,10 @@ jobs:
       - name: Run Go unit tests
         run: go test ./... -v
         working-directory: go
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: false
+      - name: Run Ruby unit tests
+        run: ruby -Ilib -Itest test/test_client.rb
+        working-directory: ruby

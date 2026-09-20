@@ -13,3 +13,5 @@ venv/
 # Local skills CLI installs (npx skills add)
 .agents/
 skills-lock.json
+
+*.gem
