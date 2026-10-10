@@ -33,8 +33,8 @@ Do NOT use this skill as official immigration, entry, or medical advice. Always 
 ## Tools
 
 1. Call `resolve_destination` when you only have a city or country name. Use the returned country / handle context. Do not invent handles.
-2. Call `check_visa_requirements` with the traveler's passport country and the destination country from Sorted.
+2. Call `check_visa_requirements` with the traveler's passport country and the destination country from Sorted. Pass `destination_handle` when known.
 3. State clearly that the result is Sorted's visa-hassle table, not a government ruling.
-4. Link the place page when useful: `https://sorted.travel/places/{handle}`.
+4. Cite only `place_url` or `source_url` from the tool result. Prefer `place_url` when present. Host is always `https://sorted.travel` — never invent domains (for example `sortedtravel.com`).
 
 Slow down before `429` (`RateLimit` / `RateLimit-Policy` headers). Optional `Idempotency-Key` on `POST /mcp` replays a dropped request.

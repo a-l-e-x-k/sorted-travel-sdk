@@ -8,7 +8,7 @@ This repository publishes:
 
 - Python: [`sorted-travel` on PyPI](https://pypi.org/project/sorted-travel/) (`pip install sorted-travel`)
 - JavaScript: [`sorted-travel` on npm](https://www.npmjs.com/package/sorted-travel/) (`npm install sorted-travel`, source in [`js/`](js/))
-- Go: [`github.com/a-l-e-x-k/sorted-travel-sdk/go`](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel) (`go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel`, source in [`go/`](go/))
+- Go: [`github.com/a-l-e-x-k/sorted-travel-sdk/go`](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go) (`go get github.com/a-l-e-x-k/sorted-travel-sdk/go`, source in [`go/`](go/))
 - Ruby: [`sorted-travel` on RubyGems](https://rubygems.org/gems/sorted-travel) (`gem install sorted-travel`, source in [`ruby/`](ruby/))
 - Agent skills on [skills.sh](https://skills.sh/a-l-e-x-k/sorted-travel-sdk): [`sorted-travel`](skills/sorted-travel/SKILL.md), [`sorted-travel-destinations`](skills/sorted-travel-destinations/SKILL.md), [`sorted-travel-weather`](skills/sorted-travel-weather/SKILL.md), [`sorted-travel-visa`](skills/sorted-travel-visa/SKILL.md)
 - Agent Plugin: [`plugin.json`](plugin.json), [`skills/`](skills/), and [`mcp.json`](mcp.json) (Agent Plugins v1)
@@ -24,7 +24,7 @@ This is a stdlib-only Python client and a zero-dependency JavaScript client for 
 - Smithery: [sorted-travel/destinations](https://smithery.ai/servers/sorted-travel/destinations)
 - PyPI: [https://pypi.org/project/sorted-travel/](https://pypi.org/project/sorted-travel/)
 - npm: [https://www.npmjs.com/package/sorted-travel/](https://www.npmjs.com/package/sorted-travel/)
-- Go module: [https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel)
+- Go module: [https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go](https://pkg.go.dev/github.com/a-l-e-x-k/sorted-travel-sdk/go)
 - RubyGems: [https://rubygems.org/gems/sorted-travel](https://rubygems.org/gems/sorted-travel)
 
 ## Agent skills (skills.sh)
@@ -79,7 +79,7 @@ npm install sorted-travel
 Go:
 
 ```sh
-go get github.com/a-l-e-x-k/sorted-travel-sdk/go/sortedtravel@v0.1.1
+go get github.com/a-l-e-x-k/sorted-travel-sdk/go@v0.1.0
 ```
 
 Ruby:

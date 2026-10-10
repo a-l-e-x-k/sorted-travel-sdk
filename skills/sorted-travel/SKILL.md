@@ -1,6 +1,6 @@
 ---
 name: sorted-travel
-description: "When to use: a traveler asks where to go from a city or airport, what a destination is like, destination weather or best months to visit, visa hassle for a passport, or to read/update saved Sorted profile preferences. How to call: connect Streamable HTTP MCP at https://sorted.travel/mcp (destination tools need no auth; profile tools use OAuth 2.0 scopes profile.read and profile.write). Listed on Smithery as sorted-travel/destinations. Call resolve_destination first. Do not invent handles or book travel."
+description: "When to use: a traveler asks where to go from a city or airport, what a destination is like (place facts by default), destination weather or best months when asked, visa hassle for a passport, or to read/update saved Sorted profile preferences. How to call: connect Streamable HTTP MCP at https://sorted.travel/mcp (destination tools need no auth; profile tools use OAuth 2.0 scopes profile.read and profile.write). Listed on Smithery as sorted-travel/destinations. Call resolve_destination first. Do not invent handles or book travel."
 ---
 
 # Sorted Travel
@@ -12,8 +12,8 @@ Sorted Travel is a personal travel planner. It ranks 400+ destinations from a de
 Use this skill when the user or task involves any of the following:
 
 - Where to go: "Where should I go from London in June?", beach, hiking, food, wildlife, or a short trip from a city or airport.
-- A named place: "What is Lisbon like in November?", plus safety, currency, eSIM, taxi apps, or whether the dates fit.
-- Weather and timing: destination forecast, climate, or the best months to visit.
+- A named place: "info on Dubai", "what is Lisbon like", plus safety, currency, eSIM, or taxi apps (use place facts, not weather).
+- Weather and timing **when asked**: destination forecast, climate, or the best months to visit.
 - Visa hassle: "Does a US passport need a visa for Japan?"
 - Saved preferences: read or update a Sorted traveler profile.
 
@@ -69,17 +69,26 @@ If a host asks for a credential for destination tools, leave it blank. For profi
 
 ## Tools
 
-Call `resolve_destination` first when you only have a city, country, region, or airport name. Use the returned `handle` (for example `paris`) or `airport_code` (for example `LHR`) on later calls. Do not invent handles.
+Call `resolve_destination` first when you only have a city, country, region, or airport name. Use the returned `handle` (for example `paris`) on later place tools. Use the returned `airport_code` as `source_location_code` only when it is a supported Sorted origin (see below). Do not invent handles.
+
+### Departure airports for recommendations
+
+Supported `source_location_code` values for flight prices and route filters: AMS, BCN, BER, BOS, CDG, DUB, FRA, JFK, LHR, SFO, SYD, YYZ. City aliases PAR→CDG, LON→LHR, NYC→JFK are accepted. `ANYWHERE` is fine for weather, region, or vibe asks that are not flight- or price-sensitive; it skips flight prices and direct-route filters. Use a supported airport (not ANYWHERE) when the traveler asks for direct, cheap/budget, flight time, or layovers. Do not use a destination IATA such as DXB as the origin unless it is in the supported list.
 
 | Tool | Use when |
 | --- | --- |
 | `resolve_destination` | You do not already have a sitemap handle or IATA code. |
-| `get_recommended_destinations` | The traveler asks where to go. Only set filters they asked for (month, airport, budget, weather, visa, tags). Never enable direct flights unless they asked. |
-| `get_destination_info` | On-the-ground facts for one handle: brief, safety, currency, phone code, eSIM, taxi apps. |
-| `get_destination_weather` | Current weather, 7-day forecast, monthly climate, or best time to visit. Prefer this over generic weather tools. If you paraphrase the 7-day forecast, credit Foreca. |
+| `get_recommended_destinations` | The traveler asks where to go. Only set filters they asked for (month, airport, budget, weather, visa, tags). Never enable direct flights unless they asked. Use a supported origin for flight/price asks; ANYWHERE is OK otherwise. Returns data only. |
+| `render_recommended_destinations` | After recommendations (required in ChatGPT and Claude), or to re-render a filtered subset of an existing list. |
+| `get_destination_info` | Default for generic destination info ("info on X", "what is X like"): brief, safety, currency, phone code, eSIM, taxi apps. Returns data only. |
+| `render_destination_info` | After destination info so the place card appears. |
+| `get_destination_weather` | Only when they ask for weather, forecast, climate, best months, or when to visit. Not for generic info. Prefer over generic weather tools; credit Foreca if you paraphrase the 7-day forecast. Returns data only. |
+| `render_destination_weather` | After destination weather so the weather card appears. |
 | `check_visa_requirements` | Passport-to-country visa stance from the Sorted visa table. Tell the traveler to verify with a government source before they fly. |
 | `get_profile_preferences` | Read saved traveler preferences. Requires OAuth `profile.read`. |
 | `update_profile_preferences` | Update saved traveler preferences. Requires OAuth `profile.write`. Cannot book travel or delete the account. |
+
+After each successful data tool call that has a matching `render_*` tool, always call that render tool so the MCP Apps widget appears. For a new search with different trip constraints (for example June vs September), call the data tool again, then render.
 
 Responses include IETF `RateLimit` and `RateLimit-Policy` headers. Slow down before you hit `429`. `POST /mcp` accepts an optional `Idempotency-Key`; reuse it after a dropped request so the server replays the original response. The contract is SemVer `1.2.0`, echoed as `API-Version` and GET `/mcp` `contractVersion`. Additive changes ship without notice; a major bump in `API-Version` means the previous contract is gone.
 

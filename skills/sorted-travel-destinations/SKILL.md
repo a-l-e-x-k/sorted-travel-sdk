@@ -1,6 +1,6 @@
 ---
 name: sorted-travel-destinations
-description: "When to use: what a named Sorted destination is like on the ground (brief, safety, currency, phone code, eSIM, taxi apps) or resolving a city name to a catalog handle. How to call: connect Streamable HTTP MCP at https://sorted.travel/mcp (zero-auth). Call resolve_destination first, then get_destination_info. Do not invent handles or book travel."
+description: "When to use: generic destination info or what a named Sorted destination is like on the ground (brief, safety, currency, phone code, eSIM, taxi apps), or resolving a city name to a catalog handle. Default for \"info on X\" / \"tell me about X\". How to call: connect Streamable HTTP MCP at https://sorted.travel/mcp (zero-auth). Call resolve_destination first, then get_destination_info. Do not invent handles or book travel."
 ---
 
 # Sorted Travel Destinations
@@ -9,11 +9,12 @@ Use Sorted Travel for on-the-ground facts about a named place in the Sorted cata
 
 ## When to Use
 
-- "What is Lisbon like in November?" plus safety, currency, eSIM, or taxi apps.
+- Generic info: "info on Dubai", "tell me about Lisbon", "what is Tokyo like".
+- On-the-ground facts: safety, currency, eSIM, or taxi apps.
 - Resolving a city, country, region, or airport name to a Sorted `handle` or IATA code.
 - Opening the right Sorted place page for a traveler.
 
-Do NOT use this skill to invent handles, book hotels/flights, or answer "where should I go" ranking questions (use `sorted-travel` for recommendations).
+Do NOT use this skill for weather, forecast, climate, or best months (use `sorted-travel-weather`). Do NOT invent handles, book hotels/flights, or answer "where should I go" ranking questions (use `sorted-travel` for recommendations).
 
 ## Connect
 
@@ -35,7 +36,8 @@ Do NOT use this skill to invent handles, book hotels/flights, or answer "where s
 
 1. Call `resolve_destination` first when you only have a city, country, region, or airport name. Use the returned `handle` (for example `paris`) or `airport_code` (for example `LHR`). Do not invent handles.
 2. Call `get_destination_info` for brief, safety, currency, phone code, eSIM, and taxi apps.
-3. Send the traveler to `https://sorted.travel/places/{handle}` (optional fragments `#brief`, `#activities`, `#weather`).
-4. Resolve unknown handles from the [sitemap](https://sorted.travel/sitemap.xml) or [destinations Schema Feed](https://sorted.travel/feeds/destinations.jsonl).
+3. Always call `render_destination_info` with that result so the place card appears in ChatGPT or Claude.
+4. Send the traveler to `https://sorted.travel/places/{handle}` (optional fragments `#brief`, `#activities`, `#weather`).
+5. Resolve unknown handles from the [sitemap](https://sorted.travel/sitemap.xml) or [destinations Schema Feed](https://sorted.travel/feeds/destinations.jsonl).
 
 Page destinations with `GET /api/v1/destinations`: omit `cursor` first, then pass `next_cursor` until `has_more` is false. Slow down before `429`. Optional `Idempotency-Key` on `POST /mcp` replays a dropped request.
